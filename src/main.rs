@@ -35,14 +35,12 @@ fn get_term_dimensions() -> Term {
         }
     }
 
-    term
+    return term;
 }
 
 fn get_chars(line: &str) -> Vec<&str> {
     //
-    let gr = UnicodeSegmentation::graphemes(line, true).collect::<Vec<&str>>();
-
-    gr
+    return UnicodeSegmentation::graphemes(line, true).collect::<Vec<&str>>();
 }
 
 fn get_seperator(chunk_count: &usize) -> String {
@@ -52,7 +50,7 @@ fn get_seperator(chunk_count: &usize) -> String {
     let c = "\x1B[0m";
     let sep = format!("{}{}{}{}", a, b, chunk_count, c);
 
-    sep
+    return sep;
 }
 
 fn get_confirmation(chunk_count: &usize, line_count: &usize, col_count: &usize) {
@@ -82,23 +80,37 @@ fn main() {
     let term = get_term_dimensions();
     let stdin = io::stdin();
     let mut line_count = 0;
-    let mut chunk_count = 0;
+    let mut chunk_count = 1;
+
+    println!("{}", get_seperator(&0));
 
     for line in stdin.lock().lines() {
         //
         line_count = line_count + 1;
 
+        if line_count >= term.height {
+            //
+            // Wait for Enter and print "chunk" indicator.
+            get_confirmation(&chunk_count, &line_count, &0);
+
+            chunk_count = chunk_count + 1;
+            line_count = 0;
+        }
+
         // Read Unicode graphenes char by char.
         for (col_count, c) in get_chars(&line.unwrap()).iter().enumerate() {
             //
+
             // If a line exceeds the terminal width, we increase the line count.
             if col_count != 0 && col_count % term.width == 0 {
+                //
                 line_count = line_count + 1;
             }
 
             // If the number of lines exceeds the hight of the terminal, we
             // start with a new "chunk".
             if line_count >= term.height {
+                //
                 if col_count != 0 && col_count % term.width == 0 {
                     print!("\n");
                 }
