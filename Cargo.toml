@@ -1,0 +1,10 @@
+[package]
+name = "cnk"
+version = "0.1.0"
+authors = ["felix"]
+
+[dependencies]
+unicode-segmentation = "1.2.1"
+
+[dev-dependencies]
+cargo-watch = "7.0.7"
