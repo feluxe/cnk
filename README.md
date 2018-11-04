@@ -1,6 +1,12 @@
 
 # cnk
 
+
+
+
+[![asciicast](https://asciinema.org/a/s2eGE8XkZHMpyU0wQGqMXBt1S.png)](https://asciinema.org/a/s2eGE8XkZHMpyU0wQGqMXBt1S)
+
+
 ### Description
 
 "cnk" short for "chunk".
