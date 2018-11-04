@@ -67,9 +67,9 @@ fn get_confirmation(chunk_count: &usize, line_count: &usize, col_count: &usize) 
     // from the main loop.
     let f = File::open("/dev/tty").expect("Cannot read /dev/tty on your system.");
 
-    for line_b in BufReader::new(f).lines() {
+    for line in BufReader::new(f).lines() {
         //
-        if line_b.unwrap() == "" {
+        if line.unwrap() == "" {
             break;
         }
     }

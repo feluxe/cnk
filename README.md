@@ -10,7 +10,7 @@
 "cnk" short for "chunk" is an Unix tool that allows splitting text (from stdin) into readable chunks that fit on one screen. You can use the ENTER key to go to the next chunk.
 
 
-### Installation
+### Install
 
 You need to have Rust/Cargo installed.
 
