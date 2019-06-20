@@ -1,8 +1,7 @@
 
 # cnk
 
-
-[![asciicast](https://asciinema.org/a/zkOvrIAvCJ0tAselyDglWNZdS.png)](https://asciinema.org/a/zkOvrIAvCJ0tAselyDglWNZdS)
+<img src="assets/cnk_example.gif" alt="cnk-screen-cast" />
 
 
 ### Description
